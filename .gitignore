@@ -1,0 +1,8 @@
+node_modules/
+.cache/
+public
+yarn-error.log
+.env
+
+# images/creators/*
+# !images/creators/.keep
