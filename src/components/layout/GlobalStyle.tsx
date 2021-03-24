@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 function getFontUrl(font: string): string {
-  return process.env.FONT_BASE_URL + "/fonts/" + font;
+  return process.env.GATSBY_FONT_BASE_URL + "/fonts/" + font;
 }
 
 export const GlobalStyle = createGlobalStyle`

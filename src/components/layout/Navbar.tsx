@@ -63,7 +63,7 @@ export function Navbar(): ReactElement {
           justifyContent: "flex-end",
         }}
       >
-        <NavbarLink as="a" href={process.env.NOTION_URL} target="blank">
+        <NavbarLink as="a" href={process.env.GATSBY_NOTION_URL} target="blank">
           About
         </NavbarLink>
         <NavbarLink as="a" href="mailto:contact@stonkify.io">
