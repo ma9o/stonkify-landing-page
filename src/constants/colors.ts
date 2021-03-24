@@ -2,7 +2,7 @@ import { css } from "styled-components";
 
 export const colors = {
   primary: "#4f6fc9", //"#a0e09b",
-  // secondary: "#1FCE00",
+  // secondary:   "#1FCE00",
   // tertiary: "#c0e4c2",
   black: {
     primary: "#192534",
