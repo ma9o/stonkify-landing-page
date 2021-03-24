@@ -1,5 +1,5 @@
 import * as React from "react";
-import { colors } from "../../constants/colors";
+import { colors } from "../../../constants/colors";
 
 export function CollaborationSvg(props) {
   return (

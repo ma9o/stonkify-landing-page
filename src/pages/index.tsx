@@ -14,10 +14,10 @@ import {
   ShowcaseSvg,
   ShowcaseTitle,
 } from "../components/Showcase";
-import { CollaborationSvg } from "../components/svg/CollaborationSvg";
-import { InfluencerSvg } from "../components/svg/InfluencerSvg";
-import { RichSvg } from "../components/svg/RichSvg";
-import { SupportSvg } from "../components/svg/SupportSvg";
+import { CollaborationSvg } from "../components/svg/art/CollaborationSvg";
+import { InfluencerSvg } from "../components/svg/art/InfluencerSvg";
+import { RichSvg } from "../components/svg/art/RichSvg";
+import { SupportSvg } from "../components/svg/art/SupportSvg";
 
 const MainTitle = styled(ShowcaseTitle)`
   font-size: min(8vw, 48px);
