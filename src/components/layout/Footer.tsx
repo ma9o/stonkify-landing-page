@@ -21,12 +21,16 @@ const FooterContainer = styled(ResponsiveContainer)`
 `;
 
 const FooterText = styled(MediumText)`
-  margin: 4px 12px;
+  margin: 8px 12px;
+  font-size: 20px;
 `;
 
 export function Footer(): ReactElement {
   return (
     <FooterContainer>
+      <FooterText>
+        <a href="mailto:contact@stonkify.io">contact@stonkify.io</a>
+      </FooterText>
       <FooterText>
         <a href="/privacy" target="blank">
           Privacy policy
