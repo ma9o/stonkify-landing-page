@@ -66,7 +66,7 @@ export function Navbar(): ReactElement {
         <NavbarLink as="a" href={process.env.GATSBY_NOTION_URL} target="blank">
           About
         </NavbarLink>
-        <NavbarLink as="a" href="https://github.com/stonkify">
+        <NavbarLink as="a" href="https://github.com/stonkify" target="blank">
           GitHub
         </NavbarLink>
       </HalfContainer>

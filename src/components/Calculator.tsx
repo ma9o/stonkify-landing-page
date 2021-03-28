@@ -77,7 +77,17 @@ export function Calculator(props): ReactElement {
         <InteractiveText>{creator.result * 1000}$</InteractiveText>
       </InteractiveTextContainer>
       <DisclaimerText>
-        *simulated buy-and-hold within ABM with random strategy over <br />
+        *
+        <a
+          style={{
+            textDecoration: "underline",
+          }}
+          href="https://github.com/stonkify/bonding-curve-simulator"
+          target="blank"
+        >
+          simulated
+        </a>{" "}
+        buy-and-hold within ABM with random strategy over <br />
         logistic curve with 1:1 reserve ratio and 2% tax rate on purchase
       </DisclaimerText>
     </CalculatorContainer>
