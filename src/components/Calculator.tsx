@@ -88,7 +88,7 @@ export function Calculator(props): ReactElement {
           simulated
         </a>{" "}
         buy-and-hold within ABM with random strategy over <br />
-        logistic curve with 1:1 reserve ratio and 2% tax rate on purchase
+        logistic curve with 2% tax rate on purchase
       </DisclaimerText>
     </CalculatorContainer>
   );
