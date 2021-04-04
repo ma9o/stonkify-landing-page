@@ -44,7 +44,7 @@ const IndexPage = ({ data }) => {
           <MainTitle>Invest in your favorite creators</MainTitle>
           <ShowcaseDescription>
             Earn returns on your donations. <br />
-            No minimum amount required!
+            No minimum amount required.
           </ShowcaseDescription>
           <EmailInput />
           <BuiltWith />
