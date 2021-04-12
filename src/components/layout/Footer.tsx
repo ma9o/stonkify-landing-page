@@ -7,6 +7,10 @@ import { MediumText } from "../Typography";
 const FooterContainer = styled(ResponsiveContainer)`
   padding-top: 20px;
   padding-bottom: 16px;
+
+  padding-left: 0px;
+  padding-right: 0px;
+
   background-color: white;
   justify-content: space-evenly;
   flex-wrap: wrap;
