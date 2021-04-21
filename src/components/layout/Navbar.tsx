@@ -5,6 +5,8 @@ import { shadows } from "../../constants/colors";
 import { BaseContainer } from "../Containers";
 import { LogoSvg } from "../svg/LogoSvg";
 import { BaseText, BigText } from "../Typography";
+import { GithubLogo } from "../svg/vendors/GithubLogo";
+import { SlackLogo } from "../svg/vendors/SlackLogo";
 
 const NavbarLink = styled(BaseText)`
   font-weight: 500;
@@ -66,8 +68,25 @@ export function Navbar(): ReactElement {
         <NavbarLink as="a" href={process.env.GATSBY_NOTION_URL} target="blank">
           About
         </NavbarLink>
-        <NavbarLink as="a" href="https://github.com/stonkify" target="blank">
-          GitHub
+        <NavbarLink
+          as="a"
+          href="https://github.com/stonkify"
+          target="blank"
+          style={{
+            flex: "0 0 30px",
+          }}
+        >
+          <GithubLogo />
+        </NavbarLink>
+        <NavbarLink
+          as="a"
+          href="https://stonkify.slack.com"
+          target="blank"
+          style={{
+            flex: "0 0 30px",
+          }}
+        >
+          <SlackLogo />
         </NavbarLink>
       </HalfContainer>
     </NavbarContainer>

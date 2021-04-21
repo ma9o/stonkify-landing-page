@@ -8,7 +8,7 @@ module.exports = {
     siteUrl: "https://stonkify.io",
     description: "Invest in your favourite creators",
     url: "https://stonkify.io",
-    image: "/images/logo.png",
+    image: "/images/icon.png",
   },
   plugins: [
     {
