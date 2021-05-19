@@ -17,7 +17,6 @@ module.exports = {
         component: require.resolve("./src/components/layout/Layout.tsx"),
       },
     },
-    "gatsby-plugin-transition-link",
     "gatsby-plugin-styled-components",
     "gatsby-plugin-image",
     {
