@@ -102,9 +102,9 @@ export function InvestorChart(props) {
 
   const chartRef = useRef();
 
-  useEffect(() => {
-    shuffleArray(creators);
-  }, []);
+  // useEffect(() => {
+  //   shuffleArray(creators);
+  // }, []);
 
   const [currentIndex, setCurrentIndex] = useState(1);
 
