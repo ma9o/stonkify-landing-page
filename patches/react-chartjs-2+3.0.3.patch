@@ -1,0 +1,93 @@
+diff --git a/node_modules/react-chartjs-2/dist/index.modern.js b/node_modules/react-chartjs-2/dist/index.modern.js
+index f39264d..4982181 100644
+--- a/node_modules/react-chartjs-2/dist/index.modern.js
++++ b/node_modules/react-chartjs-2/dist/index.modern.js
+@@ -40,24 +40,24 @@ function _objectWithoutPropertiesLoose(source, excluded) {
+ 
+ var ChartComponent = forwardRef(function (props, ref) {
+   var id = props.id,
+-      className = props.className,
+-      _props$height = props.height,
+-      height = _props$height === void 0 ? 150 : _props$height,
+-      _props$width = props.width,
+-      width = _props$width === void 0 ? 300 : _props$width,
+-      _props$redraw = props.redraw,
+-      redraw = _props$redraw === void 0 ? false : _props$redraw,
+-      type = props.type,
+-      data = props.data,
+-      _props$options = props.options,
+-      options = _props$options === void 0 ? {} : _props$options,
+-      _props$plugins = props.plugins,
+-      plugins = _props$plugins === void 0 ? [] : _props$plugins,
+-      getDatasetAtEvent = props.getDatasetAtEvent,
+-      getElementAtEvent = props.getElementAtEvent,
+-      getElementsAtEvent = props.getElementsAtEvent,
+-      fallbackContent = props.fallbackContent,
+-      rest = _objectWithoutPropertiesLoose(props, ["id", "className", "height", "width", "redraw", "type", "data", "options", "plugins", "getDatasetAtEvent", "getElementAtEvent", "getElementsAtEvent", "fallbackContent"]);
++    className = props.className,
++    _props$height = props.height,
++    height = _props$height === void 0 ? 150 : _props$height,
++    _props$width = props.width,
++    width = _props$width === void 0 ? 300 : _props$width,
++    _props$redraw = props.redraw,
++    redraw = _props$redraw === void 0 ? false : _props$redraw,
++    type = props.type,
++    data = props.data,
++    _props$options = props.options,
++    options = _props$options === void 0 ? {} : _props$options,
++    _props$plugins = props.plugins,
++    plugins = _props$plugins === void 0 ? [] : _props$plugins,
++    getDatasetAtEvent = props.getDatasetAtEvent,
++    getElementAtEvent = props.getElementAtEvent,
++    getElementsAtEvent = props.getElementsAtEvent,
++    fallbackContent = props.fallbackContent,
++    rest = _objectWithoutPropertiesLoose(props, ["id", "className", "height", "width", "redraw", "type", "data", "options", "plugins", "getDatasetAtEvent", "getElementAtEvent", "getElementsAtEvent", "fallbackContent"]);
+ 
+   var canvas = useRef(null);
+   var computedData = useMemo(function () {
+@@ -67,8 +67,8 @@ var ChartComponent = forwardRef(function (props, ref) {
+   }, [data, canvas.current]);
+ 
+   var _useState = useState(),
+-      chart = _useState[0],
+-      setChart = _useState[1];
++    chart = _useState[0],
++    setChart = _useState[1];
+ 
+   useImperativeHandle(ref, function () {
+     return chart;
+@@ -111,17 +111,20 @@ var ChartComponent = forwardRef(function (props, ref) {
+     }
+ 
+     var _computedData$dataset = computedData.datasets,
+-        newDataSets = _computedData$dataset === void 0 ? [] : _computedData$dataset,
+-        newChartData = _objectWithoutPropertiesLoose(computedData, ["datasets"]);
++      newDataSets = _computedData$dataset === void 0 ? [] : _computedData$dataset,
++      newChartData = _objectWithoutPropertiesLoose(computedData, ["datasets"]);
+ 
+     var _chart$config$data$da = chart.config.data.datasets,
+-        currentDataSets = _chart$config$data$da === void 0 ? [] : _chart$config$data$da;
++      currentDataSets = _chart$config$data$da === void 0 ? [] : _chart$config$data$da;
+     assign(chart.config.data, newChartData);
+-    chart.config.data.datasets = newDataSets.map(function (newDataSet) {
++    newDataSets.forEach(function (newDataSet) {
+       var currentDataSet = find(currentDataSets, function (d) {
+         return d.label === newDataSet.label && d.type === newDataSet.type;
+       });
+-      if (!currentDataSet || !newDataSet.data) return newDataSet;
++      if (!currentDataSet) {
++        currentDataSet = {};
++        currentDataSets.push(currentDataSet);
++      }
+ 
+       if (!currentDataSet.data) {
+         currentDataSet.data = [];
+@@ -130,7 +133,7 @@ var ChartComponent = forwardRef(function (props, ref) {
+       }
+ 
+       assign(currentDataSet.data, newDataSet.data);
+-      return _extends({}, currentDataSet, newDataSet, {
++      assign(currentDataSet, newDataSet, {
+         data: currentDataSet.data
+       });
+     });

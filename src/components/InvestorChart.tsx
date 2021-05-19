@@ -1,4 +1,4 @@
-import { ChartData, ChartOptions } from "chart.js";
+import { ChartData, ChartOptions, LineElement } from "chart.js";
 import React, { useEffect, useRef, useState } from "react";
 import { Line } from "react-chartjs-2";
 import styled from "styled-components";
@@ -32,24 +32,26 @@ const data: (shuffledCreators: any) => ChartData = (shuffledCreators) => {
 };
 
 const options: ChartOptions = {
-  legend: {
-    display: false,
-  },
-  tooltips: {
-    enabled: true,
-    intersect: false,
-    callbacks: {
-      title: (tooltipItems, data) => {
-        return capitalize(
-          creators.find((val) => {
-            return (
-              val.label === data.datasets[tooltipItems[0].datasetIndex].label
-            );
-          }).platform
-        );
-      },
-      label: (tooltipItem, data) => {
-        return data.datasets[tooltipItem.datasetIndex].label;
+  plugins: {
+    legend: {
+      display: false,
+    },
+    tooltip: {
+      enabled: true,
+      intersect: false,
+      callbacks: {
+        title: (tooltipItems) => {
+          return capitalize(
+            creators.find((val) => {
+              return (
+                val.label === tooltipItems[0].dataset.label
+              );
+            }).platform
+          );
+        },
+        label: (tooltipItem) => {
+          return tooltipItem.dataset.label;
+        },
       },
     },
   },
@@ -58,25 +60,21 @@ const options: ChartOptions = {
     intersect: false,
   },
   scales: {
-    yAxes: [
-      {
-        position: "right",
-        //type: "logarithmic",
-        ticks: {
-          beginAtZero: true,
-          callback: (item) => {
-            return item + "M";
-          },
+    y: {
+      position: "right",
+      //type: "logarithmic",
+      beginAtZero: true,
+      ticks: {
+        callback: (item) => {
+          return item + "M";
         },
       },
-    ],
-    xAxes: [
-      {
-        gridLines: {
-          display: false,
-        },
+    },
+    x: {
+      grid: {
+        display: false,
       },
-    ],
+    },
   },
 };
 
@@ -102,7 +100,7 @@ const InvestorChartContainer = styled(BaseContainer)`
 export function InvestorChart(props) {
   const { style, queryData } = props;
 
-  const chartRef = useRef<Line>();
+  const chartRef = useRef();
 
   useEffect(() => {
     shuffleArray(creators);
@@ -127,30 +125,31 @@ export function InvestorChart(props) {
       currentIndex === 0 ? creators.length - 1 : currentIndex - 1;
 
     if (chartRef?.current) {
-      chartRef.current.chartInstance.data.datasets[currentIndex].borderColor =
+      chartRef.current.data.datasets[currentIndex].borderColor =
         platformColor[creators[currentIndex].platform];
 
-      chartRef.current.chartInstance.data.datasets[
+      chartRef.current.data.datasets[
         currentIndex
       ].borderWidth = 4;
 
-      chartRef.current.chartInstance.data.datasets[
+      chartRef.current.data.datasets[
         prevIndex
       ].borderColor = withAlpha(
         hexToRgb(platformColor[creators[prevIndex].platform])
       );
 
-      chartRef.current.chartInstance.data.datasets[prevIndex].borderWidth = 2;
+      chartRef.current.data.datasets[prevIndex].borderWidth = 2;
 
-      chartRef.current.chartInstance.update();
+      chartRef.current.update();
     }
   }, [!chartRef?.current, currentIndex]);
 
   return (
     <InvestorChartContainer>
       <LineChartContainer style={style}>
-        <Line data={data(creators)} options={options} ref={chartRef} />
+        <Line data={data(creators)} options={options} ref={chartRef} type="Line" />
       </LineChartContainer>
+
       <Calculator
         currentLabel={creators[currentIndex].label}
         queryData={queryData}
