@@ -32,9 +32,9 @@ const FooterText = styled(MediumText)`
 export function Footer(): ReactElement {
   return (
     <FooterContainer>
-      <FooterText>
+      {/* <FooterText>
         <a href="mailto:contact@stonkify.io">contact@stonkify.io</a>
-      </FooterText>
+      </FooterText> */}
       <FooterText>
         <a href="/privacy" target="blank">
           Privacy policy

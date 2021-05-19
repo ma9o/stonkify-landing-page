@@ -6,7 +6,7 @@ import { BaseContainer } from "../Containers";
 import { LogoSvg } from "../svg/LogoSvg";
 import { BaseText, BigText } from "../Typography";
 import { GithubLogo } from "../svg/vendors/GithubLogo";
-import { SlackLogo } from "../svg/vendors/SlackLogo";
+import { DiscordLogo } from "../svg/vendors/DiscordLogo";
 
 const NavbarLink = styled(BaseText)`
   font-weight: 500;
@@ -86,7 +86,7 @@ export function Navbar(): ReactElement {
             flex: "0 0 30px",
           }}
         >
-          <SlackLogo />
+          <DiscordLogo />
         </NavbarLink>
       </HalfContainer>
     </NavbarContainer>
