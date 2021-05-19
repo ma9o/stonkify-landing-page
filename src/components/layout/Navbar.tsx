@@ -80,7 +80,7 @@ export function Navbar(): ReactElement {
         </NavbarLink>
         <NavbarLink
           as="a"
-          href="https://stonkify.slack.com"
+          href="https://discord.gg/YWAdj5cd6h"
           target="blank"
           style={{
             flex: "0 0 30px",
